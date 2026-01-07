@@ -1,0 +1,830 @@
+/* ========================================
+   DESIGNPRO KSA - CUSTOM STYLESHEET
+   Modern Interior & Exterior Design Company
+   Saudi Arabia
+   ======================================== */
+
+/* ========================================
+   ROOT VARIABLES (CSS Custom Properties)
+   Define colors, spacing, and other reusable values
+   ======================================== */
+:root {
+    /* Primary Brand Colors */
+    --primary-color: #2E5CDB;        /* Royal Blue */
+    --primary-dark: #1a3a8f;         /* Darker Blue */
+    --primary-light: #5b7fe5;        /* Lighter Blue */
+    
+    /* Accent Colors */
+    --accent-orange: #FF6B35;        /* Vibrant Orange */
+    --accent-gold: #FFB627;          /* Golden Yellow */
+    --accent-teal: #00C9B7;          /* Modern Teal */
+    --accent-purple: #7B68EE;        /* Medium Purple */
+    
+    /* Neutral Colors */
+    --text-dark: #1a1a1a;            /* Almost Black */
+    --text-gray: #666666;            /* Medium Gray */
+    --text-light: #999999;           /* Light Gray */
+    --bg-light: #f8f9fa;             /* Off White */
+    --bg-white: #ffffff;             /* Pure White */
+    --border-color: #e0e0e0;         /* Border Gray */
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+    
+    /* Spacing */
+    --section-padding: 80px;
+}
+
+/* ========================================
+   GLOBAL STYLES
+   Basic setup for the entire website
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-color: var(--bg-white);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default link underline */
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   Headings and text styles
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-gold));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-top: 1rem;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   Sticky header with smooth transitions
+   ======================================== */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--primary-dark) !important;
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Animated underline effect on hover */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ========================================
+   HERO SECTION
+   Full-width banner with background image
+   ======================================== */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1758448501002-8c7bb7a7d9ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtYWxsJTIwaW50ZXJpb3IlMjBkZXNpZ24lMjBsdXh1cnl8ZW58MXx8fHwxNzY3NzEzNjc0fDA&ixlib=rb-4.1.0&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: white;
+    padding: 2rem 0;
+}
+
+/* Dark overlay for better text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46, 92, 219, 0.8), rgba(0, 201, 183, 0.7));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+}
+
+.hero-buttons .btn {
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .btn-primary {
+    background-color: var(--accent-orange);
+    border: none;
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #ff5722;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* CSS Animations for Hero Section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+/* ========================================
+   SERVICES SECTION
+   Card-based layout with hover effects
+   ======================================== */
+#services {
+    background-color: var(--bg-light);
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Hover effect - lift and add color */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ========================================
+   ABOUT SECTION
+   Two-column layout with image and text
+   ======================================== */
+.about-section {
+    background-color: var(--bg-white);
+}
+
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.about-image-wrapper img {
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+.about-stat {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Slide-in animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-out;
+}
+
+/* ========================================
+   PROJECTS / CLIENTS SECTION
+   Logo grid and project gallery
+   ======================================== */
+.projects-section {
+    background-color: var(--bg-light);
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Placeholder for client logos */
+.logo-placeholder {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover .logo-placeholder {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Project Gallery Cards */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay with project info */
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+    padding: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-overlay h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-overlay p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   VALUES SECTION
+   Icon-based value statements
+   ======================================== */
+.values-section {
+    background-color: var(--bg-white);
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.value-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-teal));
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    transition: all 0.4s ease;
+}
+
+.value-item:hover .value-icon-wrapper {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.value-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.value-text {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ========================================
+   CONTACT SECTION
+   Form and contact information
+   ======================================== */
+.contact-section {
+    background-color: var(--bg-light);
+}
+
+.contact-info {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateX(10px);
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: var(--accent-orange);
+    margin-right: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    color: white;
+}
+
+.contact-item h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: var(--text-gray);
+}
+
+.contact-item:hover h5,
+.contact-item:hover p {
+    color: white;
+}
+
+/* Contact Form Styling */
+.contact-form-wrapper {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form .form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(46, 92, 219, 0.25);
+    outline: none;
+}
+
+.contact-form textarea.form-control {
+    resize: vertical;
+}
+
+.contact-form .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   FOOTER
+   Bottom section with links and social media
+   ======================================== */
+.footer {
+    background: linear-gradient(135deg, var(--text-dark), #2a2a2a);
+    color: white;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+}
+
+.footer-heading {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-orange);
+    transform: translateX(5px);
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--accent-orange);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   Mobile and tablet adjustments
+   ======================================== */
+
+/* Tablets and below */
+@media (max-width: 991px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.8rem 1rem !important;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    :root {
+        --section-padding: 50px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .contact-info,
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    /* Disable parallax on mobile for better performance */
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 575px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 0.5rem 0 !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   Reusable helper classes
+   ======================================== */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+.btn,
+a,
+input,
+textarea {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
